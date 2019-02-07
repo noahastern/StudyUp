@@ -75,6 +75,19 @@ class EventServiceImplTest {
 			eventServiceImpl.updateEventName(eventID, "Renamed Event 3");
 		  });
 	}
+	
+	@Test
+	void testUpdateMethod_event_null_badcases() {
+		Event event = null;
+		Assertions.assertThrows(StudyUpException.class, () -> {
+			eventServiceImpl.updateEvent(event);
+		});
+	}
+	
+	@Test
+	void testBadCase() {
+		assertEquals(DataStorage.eventData.size(), 1);
+	}
 
 	@Test
 	void testUpdateEventName_NameTooLong_badCase() {
