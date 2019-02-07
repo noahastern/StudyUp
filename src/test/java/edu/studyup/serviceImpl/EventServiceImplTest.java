@@ -75,5 +75,29 @@ class EventServiceImplTest {
 			eventServiceImpl.updateEventName(eventID, "Renamed Event 3");
 		  });
 	}
+
+	@Test
+	void testUpdateEventName_NameTooLong_badCase() {
+		int eventID = 1;
+		Assertions.assertThrows(StudyUpException.class, () -> {
+			eventServiceImpl.updateEventName(eventID, "A really really long event test name... This is greater than 20 characters");
+		});
+	}
+	
+	@Test
+	void testUpdateEventName_NameEqual20_GoodCase() {
+		int eventID = 1;
+		Assertions.assertThrows(StudyUpException.class, () -> {
+			eventServiceImpl.updateEventName(eventID, "ATwentyCharacterName");
+		});
+	}
+
+	@Test
+	void testUpdateEventName_NameLessThan20_GoodCase() throws StudyUpException {
+		int eventID = 1;
+		String name = "ShortName1";
+		eventServiceImpl.updateEventName(eventID, name);
+		assertEquals(name, DataStorage.eventData.get(eventID).getName());
+	}
 	
 }
