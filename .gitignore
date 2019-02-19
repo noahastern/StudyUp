@@ -13,3 +13,4 @@ build/
 target/
 *.DS_Store
 .vscode/
+.classpath
