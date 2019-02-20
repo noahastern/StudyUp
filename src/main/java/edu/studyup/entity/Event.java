@@ -46,11 +46,12 @@ public class Event {
 	}
 
 	public Date getDate() {
-		return date;
+		Date dateToReturn = date;
+		return dateToReturn;
 	}
 
 	public void setDate(Date date) {
-		this.date = date;
+		this.date = new Date(date.getTime());
 	}
 
 	public int getEventID() {
