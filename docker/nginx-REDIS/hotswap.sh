@@ -3,7 +3,7 @@
 # ip address regular expression: ([0-9]{1,3}\.){3}[0-9]{1,3}
 # port regular expression: [0-9]{1,4}
 
-confPath="nginx.conf"
+confPath="/etc/nginx/nginx.conf"
 
 # note: the semicolons before end of brace is to signal termination of a command, see: https://unix.stackexchange.com/questions/290146/multiple-logical-operators-a-b-c-and-syntax-error-near-unexpected-t
 if { [ $1 != "redis" ] && grep -q -e $1 $confPath; } || { [ $1 = "redis" ] && grep -q -e REDIS_HOST $confPath; }
