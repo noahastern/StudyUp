@@ -6,7 +6,7 @@
 confPath="/etc/nginx/nginx.conf"
 
 # note: the semicolons before end of brace is to signal termination of a command, see: https://unix.stackexchange.com/questions/290146/multiple-logical-operators-a-b-c-and-syntax-error-near-unexpected-t
-if { [ $1 != "redis" ] && grep -q -e $1 $confPath; } || { [ $1 = "redis" ] && grep -q -e REDIS_HOST $confPath; }
+if { [ $1 != "redis" ] && grep -q -e $1 $confPath; } || { [ $1 = "redis" ] && grep -q -e "server redis" $confPath; }
 then
 
   # if PARAM is an ip address and ip address exists in file, or if PARAM is 'redis' and REDIS_HOST already exists in file
