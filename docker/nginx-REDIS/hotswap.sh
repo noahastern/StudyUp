@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # ip address regular expression: ([0-9]{1,3}\.){3}[0-9]{1,3}
 # port regular expression: [0-9]{1,4}
