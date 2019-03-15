@@ -16,11 +16,11 @@ else
 
   if [ $1 = "redis" ]
   then
-    sed -i -r "s/(([0-9]{1,3}\.){3}[0-9]{1,3}|redis)/redis/g" $confPath
+    sed -i -r "s/(server ([0-9]{1,3}\.){3}[0-9]{1,3}|server redis)/server redis/g" $confPath
     # sed -i -r "s/(\:[0-9]{1,4}|\:%\{REDIS_PORT\})/\:%\{REDIS_PORT\}/g" $confPath
     # sed -i -r "s/(listen ([0-9]{1,4}|%\{PROXY_PORT\}))/listen %\{PROXY_PORT\}/g" $confPath
   else
-    sed -i -r "s/(([0-9]{1,3}\.){3}[0-9]{1,3}|redis)/$1/g" $confPath
+    sed -i -r "s/(server ([0-9]{1,3}\.){3}[0-9]{1,3}|server redis)/server $1/g" $confPath
     # sed -i -r "s/(\:[0-9]{1,4}|\:%\{REDIS_PORT\})/\:6379/g" $confPath
     # sed -i -r "s/(listen ([0-9]{1,4}|%\{PROXY_PORT\}))/listen 8888/g" $confPath
   fi
